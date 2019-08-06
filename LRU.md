@@ -67,13 +67,13 @@ Collection of addresses of Queue nodes
         return queue->number_of_filled_frames == queue->number_of_frames;
     }
 
-***check_empty_queue: *** this funtion takes a pointer to queue and returns a boolean 1 or 0 based on if queue is empty or not
+**check_empty_queue: ** this funtion takes a pointer to queue and returns a boolean 1 or 0 based on if queue is empty or not
 
     int check_empty_queue(struct Queue* queue){
         return queue->rear == NULL;
     }
 
-***delete_queue: *** a function to delete a frame from a queue
+**delete_queue: ** a function to delete a frame from a queue
 
     void delete_queue(struct Queue* queue){
         if (check_empty_queue(queue))
@@ -93,7 +93,7 @@ Collection of addresses of Queue nodes
         queue->number_of_filled_frames--;
     }
 
-***add_a_page: *** a funtion to add a page to queue and has with given page_number
+**add_a_page: ** a funtion to add a page to queue and has with given page_number
 
     void add_a_page(struct Queue* queue, struct Hash* hash, int page_number){
         if (check_frames_full(queue)) {
@@ -116,7 +116,9 @@ Collection of addresses of Queue nodes
         queue->number_of_filled_frames++;
     }
 
-***reference_a_page: *** This function will allow us to reference a page in a Queue and Hash
+
+
+**reference_a_page: ** This function will allow us to reference a page in a Queue and Hash
 
     void reference_a_page(struct Queue* queue, struct Hash* hash, int page_number){
         struct queue_node* requested_page = hash->array[page_number];
@@ -142,6 +144,8 @@ Collection of addresses of Queue nodes
             queue->front = requested_page;
         }
     }
+
+### main() function: Inside this function we create a Queue, Hash and finally we add multiple we will perform sequencial reference to page
 
     int main(){
         struct Queue* queue = create_queue(4);
