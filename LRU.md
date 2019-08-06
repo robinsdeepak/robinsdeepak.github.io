@@ -146,7 +146,7 @@ Collection of addresses of Queue nodes
     }
 
 ### main() function: 
-  Inside this function we create a Queue, Hash and finally we add multiple we will perform sequencial reference to page
+  Inside this function we create a Queue, Hash and finally we will perform multiple sequencial reference to pages
 
     int main(){
         struct Queue* queue = create_queue(4);
