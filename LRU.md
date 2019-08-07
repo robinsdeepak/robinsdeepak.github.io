@@ -1,11 +1,23 @@
-**queue_node**: It's a structure defined for a node of the doubly linked list queue
+## LRU Cache
+LRU cache stands for Least Recently Used cache, it is a cache replacement algorithm, as the name says it evicts the least recently used memory in order to provide fast and efficient way of retrieving data.
 
+Below code is the implementation of LRU cache in c language, I've skipped the commenting of this script rather i've explained every functions and blocks in detail.
+
+
+
+**queue_node**: It's a structure defined for a node of the doubly linked list queue
+                it holds the attributes: prev_node -- pointer to previous node
+                next_node -- pointer to next_node
+                page_number;
+                
     struct queue_node {
       struct queue_node *prev_node, *next_node;
       int page_number;  
     };
 
+
 **structue Queue** will be used to keep the information about the Queue
+                   attributes: number of filled frames & total number of frames
 
     struct Queue {
       int number_of_filled_frames;
@@ -14,14 +26,14 @@
     };
 
 
-Collection of addresses of Queue nodes  
+structure **Hash** is the Collection of addresses of Queue nodes  
 
     struct Hash {
       int capacity;
       struct queue_node** array;
     };
 
-**create_queue_node:** function defined to create a Queue node at demand
+**create_queue_node:** function defined to create a Queue node on demand
   parameters: page_number to be stored
   return: pointer to the created node
 
@@ -47,7 +59,7 @@ Collection of addresses of Queue nodes
         return queue;
     }
 
-**create_hash:** function create_hash will be used to create
+**create_hash:** function create_hash will be used to create a empty hash of given capacity
 
     struct Hash* create_hash(int capacity){
         struct Hash* hash = (struct Hash*)malloc(sizeof(struct Hash));
@@ -61,6 +73,7 @@ Collection of addresses of Queue nodes
 
         return hash;
     }
+    
 **check_frames_full**: this funtion will return the status of Queue if it is full or not
 
     int check_frames_full(struct Queue* queue){
